@@ -1,0 +1,33 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "My Portal Application",
+  "main": "server.js",
+  "scripts": {
+    "server": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hnkhanhtrinh/MyPortal.git"
+  },
+  "keywords": [
+    "MyPortal"
+  ],
+  "author": "TrinhHoVn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hnkhanhtrinh/MyPortal/issues"
+  },
+  "homepage": "https://github.com/hnkhanhtrinh/MyPortal#readme",
+  "dependencies": {
+    "config": "^3.3.3",
+    "express": "^4.17.1",
+    "express-validator": "^6.7.0",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.10.17"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
