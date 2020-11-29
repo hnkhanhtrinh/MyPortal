@@ -1,5 +1,5 @@
-var dbConfig = require("../config/db");
-var orm = dbConfig.orm, Schema = orm.Schema;
+import { orm as _orm } from "../config/db.js";
+var orm = _orm, Schema = orm.Schema;
 var UserSchema = new Schema({
     firstName: {
         type: String,
@@ -50,4 +50,4 @@ var UserSchema = new Schema({
 });
 
 UserSchema.index({ "username": 1, "email": 1 }, { unique: true })
-module.exports = orm.model('User', UserSchema);
+export default orm.model('User', UserSchema);

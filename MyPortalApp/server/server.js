@@ -1,21 +1,21 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-const dotenv = require("dotenv");
-dotenv.config();
+import createError from 'http-errors';
+import express, { json, urlencoded} from 'express';
+import { resolve } from 'path';
+import cookieParser from 'cookie-parser';
+import logger from 'morgan';
+import { config } from "dotenv";
+config();
 var app = express();
 
-var routes = require('./routes/index');
-var dbConfig = require('./config/db')
+import routes from './routes/index.js';
+import { init } from './config/db.js';
 
 app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(json());
+app.use(urlencoded({ extended: false }));
 app.use(cookieParser());
-dbConfig.init();
-app.use('/', express.static(path.resolve('./public')));
+init();
+app.use('/', express.static(resolve('./public')));
 //register routes 
 routes(app);
 
@@ -35,4 +35,4 @@ app.use(function(err, req, res, next) {
   res.send(err);
 });
 
-module.exports = app;
+export default app;

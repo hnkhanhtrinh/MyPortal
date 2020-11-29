@@ -1,14 +1,10 @@
-var mongoose = require('mongoose');
-var url = process.env.MONGODB_URI || 'mongodb://localhost:27017/my_portal-dev';
+import mongoose from 'mongoose';
+const url = process.env.MONGODB_URI;
 console.log(url)
-module.exports = {
-    orm: mongoose,
-    init: init
-};
-
-function init() {
+export const orm = mongoose;
+export const init = function() {
     try{
-    mongoose.connect(url, { useNewUrlParser: true,useUnifiedTopology: true }); // connect to database
+        mongoose.connect(url || "mongodb://localhost:27017/my_portal", {   useCreateIndex: true,useNewUrlParser: true,useUnifiedTopology: true }); // connect to database
     } catch(e){
         throw e
     }

@@ -1,5 +1,6 @@
-module.exports = function (app) {
+import userRoute from './user.routes.js'
+export default function (app) {
   // User Routes
-  app.use('/api/user', require('./user.routes.js')());
+  app.use('/api/user', userRoute());
 };
 

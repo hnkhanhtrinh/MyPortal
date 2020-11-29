@@ -5,6 +5,7 @@
   "scripts": {
     "start": "nodemon ./bin/www"
   },
+  "type": "module",
   "dependencies": {
     "config": "^3.3.3",
     "cookie-parser": "^1.4.5",

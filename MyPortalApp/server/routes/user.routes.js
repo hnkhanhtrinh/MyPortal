@@ -1,7 +1,8 @@
-var router = require("express").Router();
-var userController = require("../controllers/user.controller")
-module.exports = function () {
+import express from 'express';
+const router = express.Router()
+import { me } from "../controllers/user.controller.js";
+export  default function UserRoute() {
   // User Routes
-  router.get('/me', userController.me);
+  router.get('/me', me);
   return router;
 };
