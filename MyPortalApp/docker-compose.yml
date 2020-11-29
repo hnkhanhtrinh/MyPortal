@@ -9,4 +9,15 @@ services:
     backend:
         build: ./server
         ports:
-        - "5000:5000"
+        - "5001:5001"
+        depends_on: 
+        - db
+    db:
+        image: mongo
+        ports:
+            - "27017:27017"
+        volumes:
+        - mongodata:/data/db
+        restart: unless-stopped
+volumes:
+    mongodata:

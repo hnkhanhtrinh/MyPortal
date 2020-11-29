@@ -1,4 +1,4 @@
-FROM node:10.19.0
+FROM node:14.15.1
 # Create app directory
 WORKDIR /usr/src/app
 COPY package*.json ./
