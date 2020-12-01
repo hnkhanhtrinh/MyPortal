@@ -11,10 +11,6 @@ var UserSchema = new Schema({
         trim: true,
         default: '',
     },
-    displayName: {
-        type: String,
-        trim: true
-    },
     email: {
         type: String,
         index: true,

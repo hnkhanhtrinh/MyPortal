@@ -1,16 +1,25 @@
-import { orm as _orm } from "../config/db.js";
-import '../models/user.js';
-var User = _orm.User;
+import * as UserService from '../services/user.service.js';
 export const me = getMyUserInfo;
+export const signUp = _signUp;
 
-function getMyUserInfo(req, res){
-    var user = new User({username: "trinhho3", email:"hnkt2907@gmail.com2"});
-    console.log(user)
-    user.save(function (err, result) {
-        if (err) {
-            throw err
-        }
-      res.send(user);
-    });
-   
+async function _signUp(req, res){
+    var user = {
+        email: "hnkt2907@gmail.com",
+        firstName: "Trinh",
+        lastName: "Ho",
+        role : ["user"],
+        password : "123456",
+        username : "trinhhovn"
+    }
+   await UserService.createUser(user)
+   res.send("success");
+
+}
+async function getMyUserInfo(req, res){
+   const email = req.query.email;
+   const username = req.query.username;
+   console.log(email)
+   const user = await UserService.getUserByCondition({"username": username});
+   console.log(user)
+   res.send(user);
 }

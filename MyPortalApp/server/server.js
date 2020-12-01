@@ -9,7 +9,7 @@ var app = express();
 
 import routes from './routes/index.js';
 import { init } from './config/db.js';
-
+console.log("URI", process.env.MONGODB_URI)
 app.use(logger('dev'));
 app.use(json());
 app.use(urlencoded({ extended: false }));
